@@ -28,22 +28,18 @@
             <h2 class="subtitle">
                 ({{^enable_js}}no javascript - {{/enable_js}}no cookies - no web analytics trackers - no images - open sourced)
             </h2>
+            <form action="/search" method="get">
+                <div class="field has-addons has-addons-centered">
+                    <div class="control">
+                        <input class="input" type="text" name="value" size="80"
+                   placeholder="block height, block hash, transaction hash">
+                        </div> 
+                    <div class="control">
+                    <input class="button is-light" type="submit" value="Search">
+                 </div>
+                </div>
+            </form>
           </div>
         </div>
       </section>
-    <div class="hero is-primary">
-            <div class="hero-body">
-        <form action="/search" method="get">
-            <div class="field has-addons has-addons-centered">
-                <div class="control">
-                    <input class="input" type="text" name="value" size="80"
-                   placeholder="block height, block hash, transaction hash">
-                </div> 
-                <div class="control">
-                    <input class="button is-light" type="submit" value="Search">
-                 </div>
-         </div>
-        </form>
-        </div>
-    </div>
 </div>
