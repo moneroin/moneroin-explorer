@@ -21,7 +21,7 @@
 <div>
     <section class="hero is-primary">
         <div class="hero-body">
-          <div class="container has-text-centered">
+          <div class="container has-text-centered has-addons-centered">
             <h1 class="title">
                 <a href="/">XML Explorer</a>
             </h1>
@@ -31,12 +31,17 @@
           </div>
         </div>
       </section>
-
     <div class="hero is-primary">
-        <form action="/search" method="get" style="width:80%; margin-top:15px">
-            <input class="input is-rounded" type="text" name="value" size="120"
+        <form action="/search" method="get">
+            <div class="field has-addons">
+                <div class="control">
+                    <input class="input" type="text" name="value" size="80"
                    placeholder="block height, block hash, transaction hash">
-            <input class="button is-rounded" type="submit" value="Search">
+                </div> 
+                <div class="control">
+                    <input class="button is-light" type="submit" value="Search">
+                 </div>
+         </div>
         </form>
     </div>
 </div>
