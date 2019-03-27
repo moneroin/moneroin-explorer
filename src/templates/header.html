@@ -7,6 +7,8 @@
         <meta http-equiv="refresh" content="10">
     {{/refresh}}
     <title>Monero Infinity Blockchain Explorer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <!--<link rel="stylesheet" type="text/css" href="/css/style.css">-->
     <style type="text/css">
         {{#css_styles}}{{/css_styles}}
@@ -17,16 +19,28 @@
 </head>
 <body>
 <div>
-    <div class="center">
+    {{/*  <div class="center">
         <h1 class="center"><a href="/">Monero Infinity Blockchain Explorer</a></h1>
         <h4 style="font-size: 15px; margin: 0px">({{^enable_js}}no javascript - {{/enable_js}}no cookies - no web analytics trackers - no images - open sourced)</h4>
-    </div>
+    </div>  */}}
+    <section class="hero is-primary">
+        <div class="hero-body">
+          <div class="container has-text-centered">
+            <h1 class="title">
+                <a href="/">XML Explorer</a>
+            </h1>
+            <h2 class="subtitle">
+                ({{^enable_js}}no javascript - {{/enable_js}}no cookies - no web analytics trackers - no images - open sourced)
+            </h2>
+          </div>
+        </div>
+      </section>
 
     <div class="center">
-        <form action="/search" method="get" style="width:100%; margin-top:15px" class="style-1">
-            <input type="text" name="value" size="120"
+        <form action="/search" method="get" style="width:100%; margin-top:15px">
+            <input class="input is-rounded" type="text" name="value" size="120"
                    placeholder="block height, block hash, transaction hash">
-            <input type="submit" value="Search">
+            <input class="button is-rounded" type="submit" value="Search">
         </form>
     </div>
 </div>
