@@ -51,12 +51,12 @@
             | Data from {{age}} {{age_format}} ago
             {{/is_current_info}}
         </h3> -->
-        <div class="columns">
-                <div class="column"><p class="bd-notification is-primary">Network difficulty:</p><p class="bd-notification is-primary">{{difficulty}}</p></div>
-                <div class="column"><p class="bd-notification is-primary">Hard fork:</p> <p class="bd-notification is-primary">v{{current_hf_version}}</p></div>
-                <div class="column"><p class="bd-notification is-primary">Hash rate:</p> <p class="bd-notification is-primary">{{hash_rate}}</p></div>
-                <div class="column"><p class="bd-notification is-primary">Fee per byte:</p> <p class="bd-notification is-primary">{{fee_per_kb}}</p></div>
-                <div class="column"><p class="bd-notification is-primary">Median block size limit:</p> <p class="bd-notification is-primary">{{block_size_limit}} kB</p></div> 
+        <div class="columns has-text-centered has-addons-centered">
+                <div class="column is-primary"><p class="bd-notification">Network difficulty:</p><p class="bd-notification">{{difficulty}}</p></div>
+                <div class="column is-primary"><p class="bd-notification">Hard fork:</p> <p class="bd-notification">v{{current_hf_version}}</p></div>
+                <div class="column is-primary"><p class="bd-notification">Hash rate:</p> <p class="bd-notification">{{hash_rate}}</p></div>
+                <div class="column is-primary"><p class="bd-notification">Fee per byte:</p> <p class="bd-notification">{{fee_per_kb}}</p></div>
+                <div class="column is-primary"><p class="bd-notification">Median block size limit:</p> <p class="bd-notification">{{block_size_limit}} kB</p></div> 
                 {{^is_current_info}}
                 | Data from {{age}} {{age_format}} ago
                 {{/is_current_info}}
