@@ -1,6 +1,6 @@
 
 <div class="center">
-     <h3 style="font-size: 12px; margin-top: 20px">
+     <h3 class="subtitle has-text-centered">
 
         Server time: {{server_timestamp}}  | <a href="/txpool">Transaction pool</a>
          {{#enable_pusher}}
@@ -41,7 +41,7 @@
 
 
     {{#network_info}}
-        <h3 style="font-size: 12px; margin-top: 5px; margin-bottom: 3">
+        <!-- <h3 style="font-size: 12px; margin-top: 5px; margin-bottom: 3">
             Network difficulty: {{difficulty}}
             | Hard fork: v{{current_hf_version}}
             | Hash rate: {{hash_rate}}
@@ -50,7 +50,17 @@
             {{^is_current_info}}
             | Data from {{age}} {{age_format}} ago
             {{/is_current_info}}
-        </h3>
+        </h3> -->
+        <div class="columns">
+                <div class="column"><p class="bd-notification is-primary">Network difficulty:</p><p class="bd-notification is-primary">{{difficulty}}</p></div>
+                <div class="column"><p class="bd-notification is-primary">Hard fork:</p> <p class="bd-notification is-primary">v{{current_hf_version}}</p></div>
+                <div class="column"><p class="bd-notification is-primary">Hash rate:</p> <p class="bd-notification is-primary">{{hash_rate}}</p></div>
+                <div class="column"><p class="bd-notification is-primary">Fee per byte:</p> <p class="bd-notification is-primary">{{fee_per_kb}}</p></div>
+                <div class="column"><p class="bd-notification is-primary">Median block size limit:</p> <p class="bd-notification is-primary">{{block_size_limit}} kB</p></div> 
+                {{^is_current_info}}
+                | Data from {{age}} {{age_format}} ago
+                {{/is_current_info}}
+            </div>
     {{/network_info}}
 
     {{#emission}}

@@ -1,8 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    color: white;
-    background-color: black;
+    min-height:1024px
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -33,22 +32,19 @@ td {
 
 a:link {
     text-decoration: none;
-    color: white;
+    
 }
 
 a:visited {
     text-decoration: none;
-    color: white;
 }
 
 a:hover {
     text-decoration: underline;
-    color: white;
 }
 
 a:active {
     text-decoration: none;
-    color: white;
 }
 
 form {
