@@ -37,10 +37,10 @@ tr, li, #pages, .info {
     margin-top: 15px;
 }
 tr{
-    text-align: center;
+    text-align: center !important;
 }
 td {
-    text-align: center;
+    text-align: center !important;
 }
 
 a:link {
