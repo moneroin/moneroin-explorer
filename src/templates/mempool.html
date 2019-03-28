@@ -5,6 +5,7 @@
 <div class="center">
     
       <table class="center table is-fullwidth">
+          <thead>
             <tr>
                 <td>age [h:m:s]</td>
                 <td>transaction hash</td>
@@ -13,6 +14,8 @@
                 <td>in/out/pID</td>
                 <td>tx size [kB]</td>
             </tr>
+        </thead>
+        <tbody>
             {{#mempooltxs}}
             <tr>
                 <td>{{age}}</td>
@@ -23,6 +26,7 @@
                 <td>{{txsize}}</td>
             </tr>
             {{/mempooltxs}}
+        </tbody>
         </table>
 
     {{^mempool_fits_on_front_page}}
@@ -34,5 +38,5 @@
 
     {{/mempool_fits_on_front_page}}
 
-      
+
 </div>
