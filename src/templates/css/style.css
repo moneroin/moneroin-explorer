@@ -14,6 +14,17 @@ h1, h2, h3, h4, h5, h6 {
     /*border: 1px solid #73AD21;
     padding: 10px;*/
 }
+.center h3{
+    padding-top:20px;
+}
+.card-title{
+    background-color: #00d1b2;
+    color:#ffff;
+}
+.card-content{
+    border: 1px solid #ccc;
+    padding: 20px 0;
+}
 
 tr, li, #pages, .info {
     font-family: "Lucida Console", Monaco, monospace;

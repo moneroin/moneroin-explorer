@@ -51,12 +51,12 @@
             | Data from {{age}} {{age_format}} ago
             {{/is_current_info}}
         </h3> -->
-        <div class="columns has-text-centered has-addons-centered">
-                <div class="column is-primary"><p class="bd-notification">Network difficulty:</p><p class="bd-notification">{{difficulty}}</p></div>
-                <div class="column is-primary"><p class="bd-notification">Hard fork:</p> <p class="bd-notification">v{{current_hf_version}}</p></div>
-                <div class="column is-primary"><p class="bd-notification">Hash rate:</p> <p class="bd-notification">{{hash_rate}}</p></div>
-                <div class="column is-primary"><p class="bd-notification">Fee per byte:</p> <p class="bd-notification">{{fee_per_kb}}</p></div>
-                <div class="column is-primary"><p class="bd-notification">Median block size limit:</p> <p class="bd-notification">{{block_size_limit}} kB</p></div> 
+        <div class="card columns has-text-centered has-addons-centered">
+                <div class="column"><p class="card-title">Network difficulty:</p><p class="card-content">{{difficulty}}</p></div>
+                <div class="column"><p class="card-title">Hard fork:</p> <p class="card-content">v{{current_hf_version}}</p></div>
+                <div class="column"><p class="card-title">Hash rate:</p> <p class="card-content">{{hash_rate}}</p></div>
+                <div class="column"><p class="card-title">Fee per byte:</p> <p class="card-content">{{fee_per_kb}}</p></div>
+                <div class="column"><p class="card-title">Median block size limit:</p> <p class="card-content">{{block_size_limit}} kB</p></div> 
                 {{^is_current_info}}
                 | Data from {{age}} {{age_format}} ago
                 {{/is_current_info}}
