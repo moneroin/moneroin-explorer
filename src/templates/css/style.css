@@ -28,7 +28,7 @@ h1, h2, h3, h4, h5, h6 {
 
 tr, li, #pages, .info {
     font-family: "Lucida Console", Monaco, monospace;
-    font-size  : 12px;
+    /* font-size  : 12px; */
     height: 22px;
 }
 
@@ -43,19 +43,22 @@ td {
 
 a:link {
     text-decoration: none;
-    
+    color: #00d1b2;
 }
 
 a:visited {
     text-decoration: none;
+    color: #00d1b2;
 }
 
 a:hover {
     text-decoration: underline;
+    color: #00d1b2;
 }
 
 a:active {
     text-decoration: none;
+    color: #00d1b2;
 }
 
 form {

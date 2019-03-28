@@ -98,8 +98,8 @@
                     <td>tx size [kB]</td>
                  </tr>
                 </thead>
-                {{#txs}}
                 <tbody>
+                {{#txs}}
                 <tr>
                     <td><a href="/block/{{height}}">{{height}}</a></td>
                     <td>{{age}}<!--{{time_delta}}--></td>
@@ -110,8 +110,8 @@
                     <td>{{no_inputs}}/{{no_outputs}}/{{pID}}</td>
                     <td>{{tx_size_short}}</td>
                 </tr>
-            </tbody>
                 {{/txs}}
+            </tbody>
             </table>
 
             <div id="pages" class="center" style="text-align: center;">
