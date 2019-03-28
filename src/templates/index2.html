@@ -75,18 +75,19 @@
     {{{mempool_info}}}
 
     {{#is_page_zero}}
-      <h2 style="margin-bottom: 0px">Transactions in the last {{no_of_last_blocks}} blocks</h2>
+      <h2 class="title has-text-centered" style="margin-top:20px">Transactions in the last {{no_of_last_blocks}} blocks</h2>
     {{/is_page_zero}}
     {{^is_page_zero}}
-      <h2 style="margin-bottom: 0px">Transactions in older blocks<!--(height: {{height}})--></h2>
+      <h2 class="title has-text-centered" style="margin-top:20px">Transactions in older blocks<!--(height: {{height}})--></h2>
     {{/is_page_zero}}
 
-    <h4 style="font-size: 14px; margin-top: 0px">(Median size of 100 blocks: {{blk_size_median}} kB)</h4>
+    <h4 class="subtitle">(Median size of 100 blocks: {{blk_size_median}} kB)</h4>
 
     <div class="center">
 
-            <table class="center">
-                <tr>
+            <table class="center table is-striped">
+                <thead>
+                 <tr>
                     <td>height</td>
                     <td>age {{age_format}}<!--(Δm)--></td>
                     <td>size [kB]<!--(Δm)--></td>
@@ -95,8 +96,10 @@
                     <td>outputs</td>
                     <td>in/out/pID</td>
                     <td>tx size [kB]</td>
-                </tr>
+                 </tr>
+                </thead>
                 {{#txs}}
+                <tbody>
                 <tr>
                     <td><a href="/block/{{height}}">{{height}}</a></td>
                     <td>{{age}}<!--{{time_delta}}--></td>
@@ -107,6 +110,7 @@
                     <td>{{no_inputs}}/{{no_outputs}}/{{pID}}</td>
                     <td>{{tx_size_short}}</td>
                 </tr>
+            </tbody>
                 {{/txs}}
             </table>
 
