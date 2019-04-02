@@ -1,72 +1,68 @@
 
-<div>
-
-    <H4 style="margin:5px">Tx hash: {{tx_hash}}</H4>
-    {{#enable_mixins_details}}
-        <H5 style="margin:5px">Tx prefix hash: {{tx_prefix_hash}}</H5>
-    {{/enable_mixins_details}}
-    <H5 style="margin:5px">Tx public key: <span id="tx_pub_key">{{tx_pub_key}}</span></H5>
-    <span id="add_tx_pub_keys" style="display: none;">{{add_tx_pub_keys}}</span>
-
+<div class="hero center">
+    <div class="cards">
+        <div class="columns has-text-centered has-addons-centered">
+                <div class="column"><p class="card-title">Tx hash</p><p class="card-content">{{tx_hash}}</p></div>
+                {{#enable_mixins_details}}<div class="column"><p class="card-title">Tx prefix hash</p><p class="card-content">{{tx_prefix_hash}}</p></div>{{/enable_mixins_details}}
+                <div class="column"><p class="card-title">Tx public key</p><p class="card-content" id="tx_pub_key">{{tx_pub_key}}</p></div>
+        </div>
+    <p id="add_tx_pub_keys" style="display: none;">{{add_tx_pub_keys}}</p>
+</div>
     {{#has_payment_id}}
-        <H5 style="margin:5px">Payment id: <span id="payment_id">{{payment_id}}</span></H5>
-        <H5 style="margin:5px">Payment id as ascii: {{payment_id_as_ascii}}</H5>
+        <h5 style="margin:5px">Payment id: <span id="payment_id">{{payment_id}}</span></h5>
+        <h5 style="margin:5px">Payment id as ascii: {{payment_id_as_ascii}}</h5>
     {{/has_payment_id}}
 
     {{#has_payment_id8}}
-        <H5 style="margin:5px">Payment id (encrypted): <span id="payment_id">{{payment_id8}}</span></H5>
+        <h5 style="margin:5px">Payment id (encrypted): <span id="payment_id">{{payment_id8}}</span></h5>
     {{/has_payment_id8}}
 
 
     {{#have_prev_hash}}
-        <H5>Previous tx: <a href="/tx/{{prev_hash}}">{{prev_hash}}</a></H5>
+        <h5>Previous tx: <a href="/tx/{{prev_hash}}">{{prev_hash}}</a></h5>
     {{/have_prev_hash}}
 
     {{#have_next_hash}}
-        <H5>Next tx: <a href="/tx/{{next_hash}}">{{next_hash}}</a></H5>
+        <h5>Next tx: <a href="/tx/{{next_hash}}">{{next_hash}}</a></h5>
     {{/have_next_hash}}
 
+    <div class="columns has-text-centered has-addons-centered" style="margin-top:20px;">
+        <div class="column detail-card">
+                        {{^have_raw_tx}}
+                        <p>Timestamp: {{blk_timestamp_uint}}</p>
+                        {{/have_raw_tx}}
+                        <p>Block: <a href="/block/{{blk_height}}">{{blk_height}}</a></p>
+                        <p>Tx version: {{tx_version}}</p>
+        </div>
+        <div class="column is-three-fifths detail-card">
+                {{^have_raw_tx}}
+                <p>Timestamp [UCT]: {{blk_timestamp}}</p>
+                {{/have_raw_tx}}
+                <p>Fee (per_kB): {{tx_fee}} ({{payed_for_kB}})</p>
+                <p>No of confirmations: {{confirmations}}</p>
+        </div>
+        <div class="column detail-card">
+                {{^have_raw_tx}}
+                <p>Age [y:d:h:m:s]: {{delta_time}}</p>
+                {{/have_raw_tx}}
+                <p>Tx size: {{tx_size}} kB</p>
+                <p>RingCT/type:  {{#is_ringct}}yes/{{rct_type}}{{/is_ringct}}{{^is_ringct}}no{{/is_ringct}}</p>
+        </div>
+    </div>
 
 
-    <table class="center" style="width: 80%; margin-top:10px">
-        {{^have_raw_tx}}
-        <tr>
-            <td>Timestamp: {{blk_timestamp_uint}}</td>
-            <td>Timestamp [UCT]: {{blk_timestamp}}</td>
-            <td>Age [y:d:h:m:s]: {{delta_time}}</td>
-        </tr>
-        {{/have_raw_tx}}
-        <tr>
-            <td>Block: <a href="/block/{{blk_height}}">{{blk_height}}</a></td>
-            <td>Fee (per_kB): {{tx_fee}} ({{payed_for_kB}})</td>
-            <td>Tx size: {{tx_size}} kB</td>
-        </tr>
-        <tr>
-            <td>Tx version: {{tx_version}}</td>
-            <td>No of confirmations: {{confirmations}}</td>
-            <td>RingCT/type:  {{#is_ringct}}yes/{{rct_type}}{{/is_ringct}}{{^is_ringct}}no{{/is_ringct}}</td>
-        </tr>
-
-
-        <tr>
-            <td colspan="3" style="max-width:700px">Extra: {{extra}}</td>
-        </tr>
-
-
-    </table>
-
-
-  <h3>{{outputs_no}} output(s) for total of {{outputs_xmr_sum}} xmr</h3>
+    <p class="has-text-centered">Extra: {{extra}}</p>
+  <h3 class="subtitle">{{outputs_no}} output(s) for total of {{outputs_xmr_sum}} xmr</h3>
   <div class="center">
-      <table class="center">
+      <table class="table center">
           <tr>
-              <td>stealth address</td>
+              <td class="no-display">stealth address</td>
               <td>amount</td>
               <td>amount idx</td>
           </tr>
           {{#outputs}}
           <tr>
-              <td>{{output_idx}}: {{out_pub_key}}</td>
+              <td class="no-display">{{output_idx}}: {{out_pub_key}}</td>
               <td>{{amount}}</td>
               <td>{{amount_idx}} of {{num_outputs}}</td>
           </tr>
@@ -82,8 +78,8 @@
                 <input type="radio" id="tab-1" name="tab-group-1" checked>
                 <label for="tab-1">Decode outputs</label>
                 <div class="content">
-                    <h4 style="margin: 0px">Check which outputs belong to given Monero address/subaddress and viewkey</h4>
-                    <h5 style="margin: 0px">
+                    <p style="margin: 0px">Check which outputs belong to given Monero address/subaddress and viewkey</p>
+                    <p style="margin: 0px">
                         For RingCT transactions, outputs' amounts are also decoded
                         <br/>
                         {{#enable_js}}
@@ -92,22 +88,24 @@
                         {{^enable_js}}
                             Note: address/subaddress and viewkey are sent to the server, as the calculations are done on the server side
                         {{/enable_js}}
-                    </h5>
+                    </p>
                     <form action="/myoutputs" method="post" style="width:100%; margin-top:2px" class="style-1">
-                        <input type="hidden" name="tx_hash" value="{{tx_hash}}"><br/>
-                        <input type="text" name="xmr_address" size="110" placeholder="Monero address/subaddress"><br/>
-                        <input type="text" name="viewkey" size="110" placeholder="Private viewkey" style="margin-top:5px"><br/>
-                        <input type="hidden" name="raw_tx_data" value="{{raw_tx_data}}">
+                        <div class="field has-addons-centered">
+                                <div class="control"><input type="hidden" name="tx_hash" value="{{tx_hash}}"><br/></div>
+                                <div class="control"><input class="input" type="text" name="xmr_address" size="110" placeholder="Monero address/subaddress"><br/></div>
+                                <div class="control"><input class="input" type="text" name="viewkey" size="110" placeholder="Private viewkey" style="margin-top:5px"><br/></div>
+                                <div class="control"><input type="hidden" name="raw_tx_data" value="{{raw_tx_data}}"></div>
                         <!--above raw_tx_data field only used when checking raw tx data through tx pusher-->
 
                         {{#enable_js}}
                         <!-- if have js, DONOT submit the form to server.
                              change submit button, to just a button -->
-                            <button type="button" style="margin-top:5px" id="decode_btn" >Decode outputs</button>
+                             <div class="control"><button class="button" type="button" style="margin-top:5px" id="decode_btn" >Decode outputs</button></div>
                         {{/enable_js}}
                         {{^enable_js}}
-                            <input type="submit" value="Decode outputs" style="margin-top:5px" >
+                        <div class="control"><input class="button" type="submit" value="Decode outputs" style="margin-top:5px;" ></div>
                         {{/enable_js}}
+                        </div>
                     </form>
                 </div>
             </div>
@@ -117,8 +115,8 @@
                 <label for="tab-2">Prove sending</label>
 
                 <div class="content">
-                    <h4 style="margin: 0px">Prove to someone that you have sent them Monero in this transaction</h4>
-                    <h5 style="margin: 0px">
+                    <p style="margin: 0px">Prove to someone that you have sent them Monero in this transaction</p>
+                    <p style="margin: 0px">
                         Tx private key can be obtained using <i>get_tx_key</i>
                         command in  <i>monero-wallet-cli</i> command line tool
                         <br/>
@@ -128,23 +126,24 @@
                         {{^enable_js}}
                             Note: address/subaddress and tx private key are sent to the server, as the calculations are done on the server side
                         {{/enable_js}}
-                    </h5>
+                    </p>
                     <form action="/prove" method="post" style="width:100%;margin-top:2px" class="style-1">
-                       <input type="hidden" name="txhash" value="{{tx_hash}}"><br/>
-                       <input type="text" name="txprvkey" size="120" placeholder="Tx private key"><br/>
-                        <input type="hidden" name="raw_tx_data" value="{{raw_tx_data}}">
+                        <div class="field has-addons-centered">
+                                <div class="control"><input type="hidden" name="txhash" value="{{tx_hash}}"><br/></div>
+                                <div class="control"><input class="input" type="text" name="txprvkey" size="120" placeholder="Tx private key"><br/></div>
+                                <div class="control"><input type="hidden" name="raw_tx_data" value="{{raw_tx_data}}"></div>
                         <!--above raw_tx_data field only used when checking raw tx data through tx pusher-->
-                       <input type="text" name="xmraddress" size="120" placeholder="Recipient's monero address/subaddress" style="margin-top:5px"><br/>
+                        <div class="control"><input class="input" type="text" name="xmraddress" size="120" placeholder="Recipient's monero address/subaddress" style="margin-top:5px;"><br/></div>
 
                         {{#enable_js}}
                             <!-- if have js, DONOT submit the form to server.
                                  change submit button, to just a button -->
-                            <button type="button" style="margin-top:5px" id="prove_btn">Prove sending</button>
+                                 <div class="control"><button class="button" type="button" style="margin-top:5px" id="prove_btn">Prove sending</button></div>
                         {{/enable_js}}
                         {{^enable_js}}
-                           <input type="submit" value="Prove sending" style="margin-top:5px">
+                        <div class="control"><input class="button" type="submit" value="Prove sending" style="margin-top:5px"></div>
                         {{/enable_js}}
-
+                    </div>
                     </form>
                 </div>
             </div>
@@ -397,7 +396,7 @@
     {{/enable_mixins_details}}
 
     {{^inputs_xmr_sum_not_zero}}
-        <h3>{{inputs_no}} input(s) for total of {{inputs_xmr_sum}} xmr</h3>
+        <h3 class="subtitle">{{inputs_no}} input(s) for total of {{inputs_xmr_sum}} xmr</h3>
     {{/inputs_xmr_sum_not_zero}}
     {{#inputs_xmr_sum_not_zero}}
         {{^have_any_unknown_amount}}
@@ -411,7 +410,7 @@
     {{#show_part_of_inputs}}
         <h5 style="margin-top: 2px">
            Only {{max_no_of_inputs_to_show}} inputs are shown. To see all,
-            click "<a href="/tx/{{tx_hash}}/1">more details</a>"
+            click "<a href="/tx/{{tx_hash}}/1"><i class="fa fa-arrow-down"></i> more details</a>"
         </h5>
     {{/show_part_of_inputs}}
 
@@ -420,7 +419,7 @@
       {{#inputs}}
         <tr>
           <td style="text-align: left;">
-              key image  {{input_idx}}: {{in_key_img}}
+              <p class="has-text-centered">key image  {{input_idx}}: {{in_key_img}}</p>
               {{#have_raw_tx}}
                Already spent:
                 {{#already_spent}}
@@ -437,9 +436,9 @@
           <tr>
             <td colspan="2">
                 {{#enable_mixins_details}}
-                    <table style="width:100%; margin-bottom:20px">
+                    <table class="table is-striped" style="width:100%; margin-bottom:20px">
                     <tr>
-                      <td>ring members</td>
+                      <td class="no-display">ring members</td>
                       {{#have_raw_tx}}
                         <td>Is it real?</td>
                       {{/have_raw_tx}}
@@ -452,7 +451,7 @@
                     </tr>
                  {{#mixins}}
                     <tr>
-                      <td> - {{mix_idx}}: <a href="/tx/{{mix_tx_hash}}">{{mix_pub_key}}</a></td>
+                      <td class="no-display"> - {{mix_idx}}: <a href="/tx/{{mix_tx_hash}}">{{mix_pub_key}}</a></td>
                       {{#have_raw_tx}}
                         {{#mix_is_it_real}}
                             <td><span style="color: #008009;font-weight: bold">{{mix_is_it_real}}</span></td>
@@ -471,9 +470,9 @@
                  </table>
                 {{/enable_mixins_details}}
                 {{^enable_mixins_details}}
-                <table style="width:100%; margin-bottom:20px">
+                <table class="table is-striped" style="width:100%; margin-bottom:20px">
                     <tr>
-                        <td>ring members</td>
+                        <td class="no-display">ring members</td>
                         {{#have_raw_tx}}
                             <td>Is it real?</td>
                         {{/have_raw_tx}}
@@ -481,7 +480,7 @@
                     </tr>
                     {{#mixins}}
                     <tr>
-                        <td> - {{mix_idx}}: {{mix_pub_key}}</td>
+                        <td class="no-display"> - {{mix_idx}}: {{mix_pub_key}}</td>
                         {{#have_raw_tx}}
                             {{#mix_is_it_real}}
                                 <td><span style="color: #008009;font-weight: bold">{{mix_is_it_real}}</span></td>
@@ -532,7 +531,7 @@
     {{^with_ring_signatures}}
         {{#show_more_details_link}}
             <h5 style="margin-top:1px">
-                <a href="/tx/{{tx_hash}}/1">More details</a>
+                <a href="/tx/{{tx_hash}}/1"><i class="fa fa-arrow-down"></i>More details</a>
                 {{#enable_as_hex}}
                     | <a href="/txhex/{{tx_hash}}">Tx as hex</a>
                     | <a href="/ringmembershex/{{tx_hash}}">Ring member outputs/mixins as hex</a>
@@ -552,7 +551,7 @@
             </div>
         </div>
         <br/><br/>
-        <h5 style="margin-top:1px"><a href="/tx/{{tx_hash}}">Less details</a></h5>
+        <h5 style="margin-top:1px"><a href="/tx/{{tx_hash}}"><i class="fa fa-arrow-up"></i> Less details</a></h5>
     {{/with_ring_signatures}}
 {{/have_raw_tx}}
 

@@ -1,10 +1,11 @@
 body {
     margin: 0;
     padding: 0;
-    color: white;
-    background-color: black;
+    min-height:720px
 }
-
+p{
+    word-break: break-all;
+}
 h1, h2, h3, h4, h5, h6 {
     text-align: center;
 }
@@ -15,42 +16,71 @@ h1, h2, h3, h4, h5, h6 {
     /*border: 1px solid #73AD21;
     padding: 10px;*/
 }
+.center h3{
+    padding-top:20px;
+}
+.cards{
+padding-top:30px;
+padding-bottom: 20px;
+}
+
+.card-title{
+    background-color: #00d1b2;
+    color:#ffff;
+}
+.card-content{
+    border: 1px solid #ccc;
+    padding: 20px 5px;
+}
 
 tr, li, #pages, .info {
     font-family: "Lucida Console", Monaco, monospace;
-    font-size  : 12px;
+    font-size  : 14px; 
     height: 22px;
 }
-
+.height{
+    margin-top:30px;
+}
+.height tr, li, #pages, .info {
+    font-family: "Lucida Console", Monaco, monospace;
+    font-size  : 12px; 
+    height: 22px;
+}
 #pages
 {
     margin-top: 15px;
 }
-
+tr{
+    text-align: center !important;
+}
 td {
-    text-align: center;
+    text-align: center !important;
 }
 
 a:link {
     text-decoration: none;
-    color: white;
+    color: #00d1b2;
 }
 
 a:visited {
     text-decoration: none;
-    color: white;
+    color: #00d1b2;
 }
 
 a:hover {
     text-decoration: underline;
-    color: white;
+    color: #00d1b2;
 }
 
 a:active {
     text-decoration: none;
-    color: white;
+    color: #00d1b2;
 }
-
+footer{
+    margin-top:250px;
+    color:#ffffff !important;background-color:#00d1b2 !important; 
+}
+footer a{color:#ffff !important;}
 form {
     display: inline-block;
     text-align: center;
@@ -70,17 +100,27 @@ form {
 
 .tabs {
     position: relative;
-    min-height: 220px; /* This part sucks */
+    min-height: 300px; /* This part sucks */
     clear: both;
     margin: 25px 0;
+    justify-content: flex-start;
+    white-space: inherit;
 }
-
+.tabs input{
+    width:60%;
+}
+.tabs .button{
+    width:20%;
+}
+.tabs .control{
+    text-align: center;
+}
 .tab {
     float: left;
 }
 
 .tab label {
-    background: black;
+    background:#ffff;
     padding: 10px;
     border: 1px solid #ccc;
     margin-left: -1px;
@@ -94,19 +134,25 @@ form {
 
 .content {
     position: absolute;
-    top: 28px;
+    top: 30px;
     left: 0;
-    background: black;
+    background: #00d1b2;
     right: 0;
     bottom: 0;
-    padding: 20px;
+    padding: 10px;
     border: 1px solid #ccc;
+    color:#ffffff;
+    border-radius: 10px;
+    text-align: center;
 }
-
+.cotent h4{
+    color:#ffff;
+}
 [type=radio]:checked ~ label {
-    background: #505050 ;
+    background: #00d1b2;
     border-bottom: 1px solid white;
     z-index: 2;
+    color: #ffff;
 }
 
 [type=radio]:checked ~ label ~ .content {
@@ -125,7 +171,7 @@ label#show-decoded-inputs {
     display: inline-block;
     /*margin: 60px 0 10px 0;*/
     cursor: pointer;
-    background-color: black;;
+    background-color: #00d1b2;
     color: white;
     width: 100%;
     text-align: center;
@@ -139,3 +185,52 @@ div#decoded-inputs{
 input#toggle-1[type=checkbox]:checked ~ div#decoded-inputs {
     display: block;
 }
+
+.detail-card{
+    background: #00d1b2;
+    color: #ffffff;
+    margin: 0 5px;
+    border-radius: 10px;
+}
+.detail-card a{
+    color: #ffffff;
+}
+
+.txpool{
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+@media (max-width: 768px) {
+    .no-display{
+        display:none;
+    }
+    .detail-card{
+        margin:5px;
+    }
+    .tabs {
+        min-height: 420px;
+    }
+    .tabs input{
+        width:100%;
+    }
+    .tabs .button{
+        width:50%;
+    }
+  }
+@media (max-width: 414px) {
+    .no-display{
+        display:none;
+    }
+    .detail-card{
+        margin:5px;
+    }
+    .tabs {
+        min-height: 420px;
+    }
+    .tabs input{
+        width:100%;
+    }
+    .tabs .button{
+        width:50%;
+    }
+  } 
