@@ -195,6 +195,11 @@ input#toggle-1[type=checkbox]:checked ~ div#decoded-inputs {
 .detail-card a{
     color: #ffffff;
 }
+
+.txpool{
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
 @media (max-width: 768px) {
     .no-display{
         display:none;
