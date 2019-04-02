@@ -1,28 +1,33 @@
-<h2 style="margin-bottom: 0px">
+<div class="txpool">
+<h2 class="title has-text-centered" style="margin-top:30px">
    Transaction pool
 </h2>
-<h4 style="font-size: 12px; margin-top: 0px">(no of txs: {{mempool_size}}, size: {{mempool_size_kB}} kB, updated every {{ mempool_refresh_time }} seconds)</h4>
+<h4 class="subtitle">(no of txs: {{mempool_size}}, size: {{mempool_size_kB}} kB, updated every {{ mempool_refresh_time }} seconds)</h4>
 <div class="center">
     
-      <table class="center" style="width:80%">
+      <table class="center table">
+          <thead>
             <tr>
                 <td>age [h:m:s]</td>
-                <td>transaction hash</td>
+                <td class="no-display">transaction hash</td>
                 <td>fee/per_kB [&#181;&#x271]</td>
                 <!--<td>outputs</td>-->
                 <td>in/out/pID</td>
                 <td>tx size [kB]</td>
             </tr>
+        </thead>
+        <tbody>
             {{#mempooltxs}}
             <tr>
                 <td>{{age}}</td>
-                <td><a href="/tx/{{hash}}">{{hash}}</a></td>
+                <td class="no-display"><a href="/tx/{{hash}}">{{hash}}</a></td>
                 <td>{{fee}}/{{payed_for_kB}}</td>
                 <!--<td>{{xmr_outputs}}</td>-->
-                <td>{{no_inputs}}/{{no_outputs}}/{{pID}}</td>
+                <td class="no-display"å>{{no_inputs}}/{{no_outputs}}/{{pID}}</td>
                 <td>{{txsize}}</td>
             </tr>
             {{/mempooltxs}}
+        </tbody>
         </table>
 
     {{^mempool_fits_on_front_page}}
@@ -35,4 +40,5 @@
     {{/mempool_fits_on_front_page}}
 
 
+</div>
 </div>
